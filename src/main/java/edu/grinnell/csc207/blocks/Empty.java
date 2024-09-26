@@ -32,6 +32,7 @@ public class Empty implements AsciiBlock {
   public String row(int i) throws Exception {
     throw new Exception("Empty block");
   } // row(int)
+  // penis
 
   /**
    * Determine how many rows are in the block.
