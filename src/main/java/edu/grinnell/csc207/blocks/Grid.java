@@ -41,7 +41,7 @@ public class Grid implements AsciiBlock {
    *   THe number of vertical repetitions in the grid.
    */
   public Grid(AsciiBlock gridElement, int horizRepetitions,
-      int vertRepetitions) {
+              int vertRepetitions) {
     this.element = gridElement;
     this.hreps = horizRepetitions;
     this.vreps = vertRepetitions;
@@ -61,9 +61,7 @@ public class Grid implements AsciiBlock {
    * @exception Exception
    *   If the row is invalid.
    */
-  public String row(int i) throws Exception {
-    throw new Exception("Not yet implemented"); // STUB
-  } // row(int)
+  public String row(int i) throws Exception {} // row(int)
 
   /**
    * Determine how many rows are in the block.
@@ -71,7 +69,7 @@ public class Grid implements AsciiBlock {
    * @return the number of rows
    */
   public int height() {
-    return 0;   // STUB
+    return 0; // STUB
   } // height()
 
   /**
@@ -80,7 +78,7 @@ public class Grid implements AsciiBlock {
    * @return the number of columns
    */
   public int width() {
-    return 0;   // STUB
+    return 0; // STUB
   } // width()
 
   /**
@@ -93,7 +91,7 @@ public class Grid implements AsciiBlock {
    *    false otherwise.
    */
   public boolean eqv(AsciiBlock other) {
-    return ((other instanceof Grid) && (this.eqv((Grid) other)));
+    return ((other instanceof Grid) && (this.eqv((Grid)other)));
   } // eqv(AsciiBlock)
 
   /**
@@ -106,7 +104,7 @@ public class Grid implements AsciiBlock {
    *    false otherwise.
    */
   public boolean eqv(Grid other) {
-    return (this.hreps == other.hreps) && (this.vreps == other.hreps)
-        && (this.element.eqv(other.element));
+    return (this.hreps == other.hreps) && (this.vreps == other.hreps) &&
+        (this.element.eqv(other.element));
   } // eqv(Grid)
 } // class Grid
