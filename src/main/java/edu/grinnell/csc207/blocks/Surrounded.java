@@ -47,10 +47,10 @@ public class Surrounded implements AsciiBlock {
     if (i < 0 || i > this.height() - 1) {
       throw new Exception("Invalid row");
     } else if (i == 0 || i == this.height() - 1) {
-      return this.surroundChar + contents.row(-1) + this.surroundChar;
-
+      return surroundChar.repeat(this.width());
+    } else{
+      return this.surroundChar + contents.row(i-1) + this.surroundChar;
     }
-    throw new Exception("Not yet implemented"); // STUB
   } // row(int)
 
   /**
