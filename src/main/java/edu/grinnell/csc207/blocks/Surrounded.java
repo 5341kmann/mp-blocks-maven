@@ -59,7 +59,7 @@ public class Surrounded implements AsciiBlock {
    * @return the number of rows
    */
   public int height() {
-    return contents.height + 2;
+    return contents.height() + 2;
   } // height()
 
   /**
@@ -79,6 +79,6 @@ public class Surrounded implements AsciiBlock {
    *         otherwise.
    */
   public boolean eqv(AsciiBlock other) {
-    return false; // STUB
+    
   } // eqv(AsciiBlock)
 } // class Surrounded
