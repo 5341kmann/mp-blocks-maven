@@ -71,7 +71,30 @@ public class HComp implements AsciiBlock {
    *   if i is outside the range of valid rows.
    */
   public String row(int i) throws Exception {
-    return "";  // STUB
+    // finding dimension of composition
+    int height = this.height();
+
+    String returnRow = "";
+    if (i < 0 || i > height - 1) {
+      throw new Exception("Invalid row");
+    } else {
+
+      for (AsciiBlock block : blocks) {
+        int padding = 0;
+        if (align == VAlignment.CENTER){
+          padding = (block.height() - height)/2;
+        } else if  (align == VAlignment.BOTTOM){
+          padding = block.height() - height;
+        }
+
+        if (i < padding || i >= (padding + block.height())){
+          returnRow += " ".repeat(block.width());
+        } else{
+          returnRow += block.row(i-padding);
+        }
+      }
+    }
+    return returnRow;
   } // row(int)
 
   /**
@@ -80,7 +103,13 @@ public class HComp implements AsciiBlock {
    * @return the number of rows
    */
   public int height() {
-    return 0;   // STUB
+    int maxHeight = blocks[0].height();
+    for (int i = 0; i < blocks.length; i++) {
+      if(blocks[i].height() > maxHeight) {
+        maxHeight = blocks[i].height();
+      } // if
+    } // for
+    return maxHeight;
   } // height()
 
   /**
@@ -89,7 +118,11 @@ public class HComp implements AsciiBlock {
    * @return the number of columns
    */
   public int width() {
-    return 0;   // STUB
+    int totalWidth = 0;
+    for (int i = 0; i < blocks.length; i++) {
+      totalWidth += blocks[i].width();
+    } // for
+    return totalWidth;
   } // width()
 
   /**
