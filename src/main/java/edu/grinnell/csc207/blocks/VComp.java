@@ -71,8 +71,20 @@ public class VComp implements AsciiBlock {
         curCeiling += prevFloor + block.height();
         if (curFloor <= i && i < curCeiling) {
           int blockIndex = i - curFloor;
+          int width = this.width();
+          int padding = width - block.width();
+
+          if (align == HAlignment.CENTER) {
+            return " ".repeat(padding / 2)
+                + block.row(blockIndex)
+                + " ".repeat(padding / 2 + (padding % 2));
+          } else if (align == HAlignment.LEFT) {
+            return block.row(blockIndex) + " ".repeat(padding);
+          } else {
+            return " ".repeat(padding) + block.row(blockIndex);
+          }
         }
-       prevFloor += block.height();
+        prevFloor += block.height();
       }
     }
   } // row(int)
