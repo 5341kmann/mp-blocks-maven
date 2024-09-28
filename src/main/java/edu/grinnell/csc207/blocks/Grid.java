@@ -61,7 +61,9 @@ public class Grid implements AsciiBlock {
    * @exception Exception
    *   If the row is invalid.
    */
-  public String row(int i) throws Exception {} // row(int)
+  public String row(int i) throws Exception {
+    return "";
+  } // row(int)
 
   /**
    * Determine how many rows are in the block.

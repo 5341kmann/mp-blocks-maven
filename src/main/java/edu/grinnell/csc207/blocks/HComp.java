@@ -71,7 +71,7 @@ public class HComp implements AsciiBlock {
    *   if i is outside the range of valid rows.
    */
   public String row(int i) throws Exception {
-    // finding dimension of composition
+    // Finding max height of composition.
     int height = this.height();
 
     String returnRow = "";
@@ -135,6 +135,6 @@ public class HComp implements AsciiBlock {
    *    false otherwise.
    */
   public boolean eqv(AsciiBlock other) {
-    return false;       // STUB
+    return (other instanceof Grid) && (this.height() == other.height()) && (this.width() == other.width());
   } // eqv(AsciiBlock)
 } // class HComp
